@@ -108,3 +108,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 
 *.lnk
+
+
+# Test Space Station in order to prevent merging conflicts
+
+TestForSpaceStation.unity
+TestForSpaceStation.unity.meta
