@@ -22,6 +22,17 @@ namespace Game
         [SerializeField] private float initialGameTime = 60;
         [SerializeField] private float difficultyTimeModifier = 10;
         [SerializeField] private float minTimeIntervalBetweenTasks = 10;
+
+        // Timer Section for decrementing the Integrity-value permanently.
+        private const float TimeWhenDecrementEasy = 5.0f;
+        private const float TimeWhenDecrementMedium = 3.0f;
+        private const float TimeWhenDecrementHard = 2.0f;
+        
+        // The Timer for the Decrement and its default value
+        private float _defaultTimeDecrement;
+        private float _decrementTimer;
+
+        [SerializeField] private int decrementValue;
         
         // determines the size of the interval from which a random value is used for the next game task time
         // higher values will result in a greater chance of more widely spread time intervals
@@ -56,7 +67,9 @@ namespace Game
         {
             remainingTime = initialGameTime;
             m_NextGameTaskTime = GetNextTimeInterval();
-
+            _defaultTimeDecrement = DetermineTimeAccordingToDifficulty();
+            _decrementTimer = _defaultTimeDecrement;
+            
             // initialize factories
             var factoryInitializationData = new FactoryInitializationData(difficulty, playerProfileService,
                 gameTaskObserver, integrityObserver);
@@ -66,6 +79,17 @@ namespace Game
             }
         }
 
+        private float DetermineTimeAccordingToDifficulty()
+        {
+            return difficulty.GetSeparatedDifficulty() switch
+            {
+                SeparatedDifficulty.Easy => TimeWhenDecrementEasy,
+                SeparatedDifficulty.Medium => TimeWhenDecrementMedium,
+                SeparatedDifficulty.Hard => TimeWhenDecrementHard,
+                _ => TimeWhenDecrementEasy
+            };
+        }
+
         private void Update()
         {
             if (remainingTime > 0)
@@ -73,6 +97,14 @@ namespace Game
                 if (!timerPaused)
                 {
                     remainingTime -= Time.deltaTime;
+                    _decrementTimer -= Time.deltaTime;
+
+                    if (_decrementTimer <= 0.0f)
+                    {
+                        integrityObserver.integrity.DecrementIntegrity(decrementValue);
+                        _decrementTimer = _defaultTimeDecrement;
+                    } 
+                    
                     OnTimeChanged?.Invoke(remainingTime);
 
                     // check whether new game task is reached
