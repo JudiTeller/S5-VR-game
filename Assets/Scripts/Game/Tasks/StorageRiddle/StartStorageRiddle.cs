@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game.Tasks.StorageRiddle
 {
     // class used to manage the process of the task
-    public class StartStorageRiddle : TimerTask
+    public class StartStorageRiddle : GameTask
     {
         // Logger
         private Logger m_LOG = new (new LogHandler());
@@ -16,8 +16,8 @@ namespace Game.Tasks.StorageRiddle
         public HandleBoxDelivery handleBoxDeliveryScript;
         public SpawnBoxes spawnBoxesScript;
         
-        public StartStorageRiddle() : base(initialTimerTime: 600f, taskName: "Storage Riddle", 
-            taskDescription: "Storage Riddle", integrityValue: 10)
+        public StartStorageRiddle() : base(taskName: "Storage Riddle", 
+            taskDescription: "Bring the boxes to the green light.", integrityValue: 10)
         {
         }
         

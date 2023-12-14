@@ -3,25 +3,18 @@
 namespace Game.Tasks.EnergyCore
 {
     // control-script of the energycore-task
-    public class StartEnergyCoreTask : TimerTask
+    public class StartEnergyCoreTask : GameTask
     {
         public int finishedEnergyCoreCounter;
         
-        public StartEnergyCoreTask() : base(initialTimerTime : 70f, taskName: "Energy Core", taskDescription: "Energy Core",
+        public StartEnergyCoreTask() : base( taskName: "Energy Core", taskDescription: "Energy Core",
             integrityValue : 10)
         {
         }
 
         public override void Initialize()
         {
-            // sets the starting time depending on the used difficulty
-            remainingTime = difficulty.GetSeparatedDifficulty() switch
-            {
-                SeparatedDifficulty.Easy => 90f,
-                SeparatedDifficulty.Medium => 70f,
-                SeparatedDifficulty.Hard => 50f,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            // no implementation needed anymore
         }
 
         protected override void BeforeStateCheck()

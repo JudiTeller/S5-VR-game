@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Tasks.AsteroidsShooter
 {
     // class used to control the asteroid-shooter
-    public class StartAsteroidShooter : GameTask
+    public class StartAsteroidShooter : TimerTask
     {
         public GameObject asteroidShooterScene; // needs the prefab of the asteroid-shooter
         public SpawnAsteroids spawnAsteroidsScript; // needs the script SpawnAsteroids
@@ -14,7 +14,7 @@ namespace Game.Tasks.AsteroidsShooter
         
         private bool _started;
         
-        public StartAsteroidShooter() : base("AsteroidShooter", "AsteroidShooter description")
+        public StartAsteroidShooter() : base(180,"AsteroidShooter", "AsteroidShooter description")
         {
         }
 
