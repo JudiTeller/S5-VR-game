@@ -137,6 +137,7 @@ namespace Game.Tasks
             m_LinkedGameObjects.Remove(gameObjectToUnlink);
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         /// <summary>
         /// Removes the game object and all its linked game objects from the scene
         /// </summary>

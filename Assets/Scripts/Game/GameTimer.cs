@@ -4,6 +4,7 @@ using Game.Tasks;
 using Logging;
 using PlayerController;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -32,7 +33,7 @@ namespace Game
         private float _defaultTimeDecrement;
         private float _decrementTimer;
 
-        [SerializeField] private int decrementValue;
+        [FormerlySerializedAs("decrementValue")] [SerializeField] private int integrityDecrementValue;
         
         // determines the size of the interval from which a random value is used for the next game task time
         // higher values will result in a greater chance of more widely spread time intervals
@@ -97,14 +98,8 @@ namespace Game
                 if (!timerPaused)
                 {
                     remainingTime -= Time.deltaTime;
-                    _decrementTimer -= Time.deltaTime;
+                    HandleIntegrityValueDecrementOverTime();
 
-                    if (_decrementTimer <= 0.0f)
-                    {
-                        integrityObserver.integrity.DecrementIntegrity(decrementValue);
-                        _decrementTimer = _defaultTimeDecrement;
-                    } 
-                    
                     OnTimeChanged?.Invoke(remainingTime);
 
                     // check whether new game task is reached
@@ -123,6 +118,24 @@ namespace Game
                 timeOver = true;
                 OnTimeOver?.Invoke();
                 m_LOG.Log(LOGTag, "game over");
+            }
+        }
+
+        /// <summary>
+        /// Decrements the Integrity-Value if the timer for
+        /// it has run up and resets the timer if the integrity
+        /// value has changed.
+        /// </summary>
+        private void HandleIntegrityValueDecrementOverTime()
+        {
+            _decrementTimer -= Time.deltaTime;
+
+            if (_decrementTimer <= 0.0f)
+            {
+                integrityObserver.integrity.DecrementIntegrity(integrityDecrementValue);
+                Debug.Log("Should have decremented the integrity value");
+                Debug.Log("Integrity-Value: " + integrityObserver.integrity.GetCurrentIntegrity());
+                _decrementTimer = _defaultTimeDecrement;
             }
         }
 
