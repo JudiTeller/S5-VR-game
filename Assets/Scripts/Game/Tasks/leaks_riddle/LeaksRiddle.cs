@@ -15,7 +15,7 @@ namespace Game.Tasks.leaks_riddle
         
         
         public LeaksRiddle() : base(120, "Leaks Riddle", "Clear the leaks\n" +
-                                                       "and reset the pressure.")
+                                                       "and reset the pressure.", 20)
         {
             
         }
