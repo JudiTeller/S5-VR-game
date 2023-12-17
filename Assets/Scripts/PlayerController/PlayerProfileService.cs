@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace PlayerController
@@ -11,6 +9,7 @@ namespace PlayerController
     /// </summary>
     public class PlayerProfileService : MonoBehaviour
     {
+        public const string k_PlayerGameObjectTag = "Player";
         [SerializeField] private bool isVrPlayerActive;
         [SerializeField] private GameObject vrPlayer;
         [SerializeField] private GameObject xrOrigin;

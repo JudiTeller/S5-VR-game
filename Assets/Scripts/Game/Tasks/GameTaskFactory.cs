@@ -49,7 +49,7 @@ namespace Game.Tasks
         private const string LOGTag = "GameTaskFactory";
         
         // game data references
-        private Difficulty m_Difficulty;
+        protected Difficulty mDifficulty;
         private PlayerProfileService m_PlayerProfileService;
         private GameTaskObserver m_GameTaskObserver;
         private IntegrityObserver m_IntegrityObserver;
@@ -58,7 +58,7 @@ namespace Game.Tasks
 
         public override void Initialize(FactoryInitializationData initializationData)
         {
-            m_Difficulty = initializationData.difficulty;
+            mDifficulty = initializationData.difficulty;
             m_PlayerProfileService = initializationData.playerProfileService;
             m_GameTaskObserver = initializationData.gameTaskObserver;
             m_IntegrityObserver = initializationData.integrityObserver;
@@ -80,7 +80,7 @@ namespace Game.Tasks
                 GameTask newTask = CreateTask(spawnPoint);
                 
                 // assign game related data to task
-                newTask.difficulty = m_Difficulty;
+                newTask.difficulty = mDifficulty;
                 newTask.playerProfileService = m_PlayerProfileService;
                 
                 // allocate spawn point with newly created task

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.031483587, g: 0.009458372, b: 0.013140744, a: 1}
+  m_IndirectSpecularColor: {r: 0.031442195, g: 0.009468702, b: 0.013107872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3180,6 +3180,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab152f61198d54532ae39108e616ff59, type: 3}
+--- !u!1 &314345554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314345555}
+  m_Layer: 0
+  m_Name: leaks_spawnpoint6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &314345555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314345554}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.0000029504295, z: -0, w: 1}
+  m_LocalPosition: {x: 9.78, y: 1.323, z: -0.972}
+  m_LocalScale: {x: 0.5999996, y: 0.3, z: 0.3999997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792608899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &343664753
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,6 +3548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &508178414
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,6 +3578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!4 &508178416
 Transform:
   m_ObjectHideFlags: 0
@@ -9130,6 +9163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 734668759}
   - component: {fileID: 734668760}
+  - component: {fileID: 734668761}
   m_Layer: 0
   m_Name: MedicalDisasterSpawnPoint1
   m_TagString: Untagged
@@ -9164,6 +9198,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 734668761}
+--- !u!65 &734668761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734668758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!1001 &745125224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9363,6 +9419,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b3f36e835346747865afbf6cf62acf, type: 3}
+--- !u!1 &779340731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 779340732}
+  m_Layer: 0
+  m_Name: leaks_spawnpoint4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &779340732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779340731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.4999985, y: -0.50000155, z: -0.49999997, w: -0.50000006}
+  m_LocalPosition: {x: 42.280003, y: 0.14, z: 7.24}
+  m_LocalScale: {x: 0.29999998, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792608899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790858297 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7437889339238721774, guid: a028a9caf7ccf2443a238296ded73a04, type: 3}
@@ -9413,6 +9500,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fractured: {fileID: 4119817919057948909, guid: b7cbd0273092df24eb3907ec2d4f399c, type: 3}
+--- !u!1 &793399592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793399593}
+  m_Layer: 0
+  m_Name: leaks_spawnpoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &793399593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793399592}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071079, z: -0.70710576, w: 0}
+  m_LocalPosition: {x: -36.598003, y: 0.14, z: -4.4630003}
+  m_LocalScale: {x: 0.5999996, y: 0.29999998, z: 0.39999974}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792608899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &806555037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 806555038}
+  m_Layer: 0
+  m_Name: leaks_spawnpoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &806555038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806555037}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 9.78, y: 1.323, z: 8.061337}
+  m_LocalScale: {x: 0.5999996, y: 0.3, z: 0.3999997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792608899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854990189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2766555538743404404, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+  m_PrefabInstance: {fileID: 1344499814}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da4c362a0024bc880cbe437f4f3ae7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &857875185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13548,6 +13708,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerService: {fileID: 1140929251}
   distance: 5
+--- !u!1 &981956602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981956603}
+  m_Layer: 0
+  m_Name: leaks_spawnpoint7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &981956603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981956602}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 33.520004, y: 1.323, z: 8.061337}
+  m_LocalScale: {x: 0.5999996, y: 0.3, z: 0.3999997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792608899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &982813676
 GameObject:
   m_ObjectHideFlags: 0
@@ -13640,6 +13831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &1013114009 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1920449188707948386, guid: ab01648c73795374fa3934222a50eb23, type: 3}
@@ -15627,6 +15819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1001 &1029942698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15845,6 +16038,66 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1778439861}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1091244113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091244115}
+  - component: {fileID: 1091244114}
+  m_Layer: 0
+  m_Name: LeaksFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1091244114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091244113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43039301a85b4fcdb3761eb80365a536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 1460663189}
+  leaksRiddlePrefab: {fileID: 378838516378439920, guid: 4d9ee92338d0941cca870d758f2d3427, type: 3}
+  leakSpawnPoints:
+  - {fileID: 1905599436}
+  - {fileID: 1505931916}
+  - {fileID: 793399593}
+  - {fileID: 779340732}
+  - {fileID: 806555038}
+  - {fileID: 314345555}
+  - {fileID: 981956603}
+  - {fileID: 1829666315}
+  leakPrefab: {fileID: 8838157312175166357, guid: 0bbb1605d16045ac389a6e3c633f4e8f, type: 3}
+  difficulty: {fileID: 854990189}
+--- !u!4 &1091244115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091244113}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1460663188}
+  - {fileID: 1792608899}
+  m_Father: {fileID: 1344499815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124893260 stripped
 GameObject:
@@ -16116,6 +16369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &1236737386
 GameObject:
   m_ObjectHideFlags: 0
@@ -17128,8 +17382,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: initialGameTime
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: factories.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: playerProfileService
@@ -17171,6 +17429,10 @@ PrefabInstance:
       propertyPath: factories.Array.data[7]
       value: 
       objectReference: {fileID: 870113292}
+    - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      propertyPath: factories.Array.data[8]
+      value: 
+      objectReference: {fileID: 1091244114}
     - target: {fileID: 3769836651817287872, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       propertyPath: minTimeIntervalBetweenTasks
       value: 1
@@ -17226,6 +17488,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7144069949640085782, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1091244115}
     - targetCorrespondingSourceObject: {fileID: 7144069949640085782, guid: 0cda5b461e1a3bc4fb95af263ff9f9b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 420801822}
@@ -17955,6 +18220,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timelineDirector: {fileID: 1448810285}
   scene: {fileID: 1448810284}
+--- !u!1 &1460663187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460663188}
+  - component: {fileID: 1460663189}
+  m_Layer: 10
+  m_Name: LeaksRiddleSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1460663188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460663187}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -7.871003, y: 0.2, z: 2.6460075}
+  m_LocalScale: {x: 0.50000036, y: 1, z: 0.7500006}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1091244115}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1460663189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460663187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1473242413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18116,6 +18425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1001 &1477313347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18759,6 +19069,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b3f36e835346747865afbf6cf62acf, type: 3}
+--- !u!1 &1505931915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505931916}
+  m_Layer: 0
+  m_Name: leaks_spawnpoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1505931916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505931915}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 57.680008, y: 1.323, z: 8.061337}
+  m_LocalScale: {x: 0.5999996, y: 0.3, z: 0.3999997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792608899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508342274 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1287111174166965339, guid: af517388b7c1d66438296d26358fd99d, type: 3}
@@ -18822,6 +19163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1001 &1511840716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18983,6 +19325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &1530439221
 GameObject:
   m_ObjectHideFlags: 0
@@ -19024,6 +19367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1532761268}
   - component: {fileID: 1532761269}
+  - component: {fileID: 1532761270}
   m_Layer: 0
   m_Name: MixingIngredientsSpawnPoint1
   m_TagString: Untagged
@@ -19062,6 +19406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9382dddbada4c6392b146ee8d366d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 1532761270}
   recipeSpawnPoint: {fileID: 1162545954}
   ingredientContainerSpawnPoints:
   - {fileID: 2132106275}
@@ -19071,6 +19416,27 @@ MonoBehaviour:
   - {fileID: 1296902297}
   plantToWaterSpawnPoint: {fileID: 117140801}
   wateringBottleSpawnPoint: {fileID: 726439948}
+--- !u!65 &1532761270
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532761267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.747276, y: 1, z: 3.9018173}
+  m_Center: {x: 4.373638, y: 0, z: 0.17699623}
 --- !u!1001 &1549815486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20647,6 +21013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1001 &1700595996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21732,6 +22099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!4 &1719076931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4024914263291546, guid: 835acc1a9ebe24c0fa3854c99346f9cd, type: 3}
@@ -21912,6 +22280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!1 &1767264025
 GameObject:
   m_ObjectHideFlags: 0
@@ -22114,6 +22483,45 @@ Transform:
   - {fileID: 346793437}
   m_Father: {fileID: 392388214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1792608898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1792608899}
+  m_Layer: 10
+  m_Name: leaks_spawnpoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1792608899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792608898}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -7.871003, y: 0.2, z: 2.6460075}
+  m_LocalScale: {x: 0.50000036, y: 1, z: 0.7500006}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1905599436}
+  - {fileID: 1505931916}
+  - {fileID: 793399593}
+  - {fileID: 779340732}
+  - {fileID: 806555038}
+  - {fileID: 314345555}
+  - {fileID: 981956603}
+  - {fileID: 1829666315}
+  m_Father: {fileID: 1091244115}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1821723260 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7437889339238721774, guid: a028a9caf7ccf2443a238296ded73a04, type: 3}
@@ -22281,6 +22689,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b3f36e835346747865afbf6cf62acf, type: 3}
+--- !u!1 &1829666314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1829666315}
+  m_Layer: 0
+  m_Name: leaks_spawnpoint8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1829666315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829666314}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.92387986, z: -0, w: -0.38268277}
+  m_LocalPosition: {x: -7.3270006, y: 1.323, z: 8.061337}
+  m_LocalScale: {x: 0.59999967, y: 0.3, z: 0.3999997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792608899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1830639514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22658,6 +23097,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fractured: {fileID: 4119817919057948909, guid: b7cbd0273092df24eb3907ec2d4f399c, type: 3}
+--- !u!1 &1905599435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1905599436}
+  m_Layer: 0
+  m_Name: leaks_spawnpoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1905599436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905599435}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -31.620003, y: 1.323, z: 8.061337}
+  m_LocalScale: {x: 0.5999996, y: 0.3, z: 0.3999997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1792608899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1913679099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7437889339238721774, guid: a028a9caf7ccf2443a238296ded73a04, type: 3}
@@ -23434,6 +23904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96df21c3a5fbfb42855a3d689822966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearbyCollider: {fileID: 0}
 --- !u!4 &2029090400
 Transform:
   m_ObjectHideFlags: 0

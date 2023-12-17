@@ -12,6 +12,8 @@ TagManager:
   - Canvas
   - Sphere_Collider
   - Goal_Collider
+  - leak
+  - duct_tape
   layers:
   - Default
   - TransparentFX
