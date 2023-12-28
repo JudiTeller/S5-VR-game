@@ -1,66 +1,80 @@
 using System;
-using Logging;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Game.Tasks.AsteroidsShooter
 {
-    // method to handle the asteroid-spawning and moving to the player
+    /// <summary>
+    /// handles the asteroid-spawning and moving to the player
+    /// </summary>
     public class SpawnAsteroids : MonoBehaviour
     {
-        private readonly Logger m_LOG = new Logger(new LogHandler());
-        private const string LOGTag = "SpawnAsteroids";
-        public GameObject rock; // stores the prefab of the used asteroid
+        // stores the prefab of the used asteroid
+        [SerializeField] private GameObject rock; 
         
         // possible positions for the asteroid to spawn
-        public Transform spawnPos1;
-        public Transform spawnPos2;
-        public Transform spawnPos3;
-        public Transform spawnPos4;
-        public Transform spawnPos5;
-        public Transform spawnPos6;
-        public Transform spawnPos7;
-        public Transform spawnPos8;
-        private Transform[] spawnPositions = new Transform[8];
+        [SerializeField] private Transform spawnPos1;
+        [SerializeField] private Transform spawnPos2;
+        [SerializeField] private Transform spawnPos3;
+        [SerializeField] private Transform spawnPos4;
+        [SerializeField] private Transform spawnPos5;
+        [SerializeField] private Transform spawnPos6;
+        [SerializeField] private Transform spawnPos7;
+        [SerializeField] private Transform spawnPos8;
+        [SerializeField] private Transform[] _spawnPositions = new Transform[8];
 
         // possible positions the asteroid could fly to
-        public Transform endPoint1;
-        public Transform endPoint2;
-        public Transform endPoint3;
-        public Transform endPoint4;
-        private Transform[] endPoints = new Transform[4];
+        [SerializeField] private Transform endPoint1;
+        [SerializeField] private Transform endPoint2;
+        [SerializeField] private Transform endPoint3;
+        [SerializeField] private Transform endPoint4;
+        private Transform[] _endPoints = new Transform[4];
         
-        public Difficulty difficulty; // stores the selected difficulty-value
+        // stores the selected difficulty-value
+        [SerializeField] public Difficulty difficulty;
         
-        private float spawnTime; // stores the time remaining until the next asteroid will spawn
+        // stores the time remaining until the next asteroid will spawn
+        private float _spawnTime; 
         
-        private float spawnInterval; // stores the value of the interval between two asteroid-spawns
-        private float projectileSpeed; // stores the speed of the projectile
-        private int amountAsteroid; // stores the amount of asteroids spawning
+        // stores the value of the interval between two asteroid-spawns
+        private float _spawnInterval; 
         
-        private bool running = true; // stores the value if the task is running
+        // stores the speed of the projectile
+        private float _projectileSpeed; 
         
+        // stores the amount of asteroids spawning
+        private int _amountAsteroid; 
+        
+        // stores the value if the task is running
+        private bool _running = true; 
+        
+        // = true, when the time of the task is over
         [HideInInspector]
-        public bool taskOverAmount; // = true, when the time of the task is over
+        [SerializeField] public bool taskOverAmount;
+        
+        /// <summary>
+        /// sets up task depending on the selected difficulty
+        /// adds spawn-points and end-points to each list
+        /// </summary>
         private void Start()
         {
             SetupDifficulty();
 
             // sets the default starting values
-            spawnTime = spawnInterval;
-            running = true;
+            _spawnTime = _spawnInterval;
+            _running = true;
             
-            spawnPositions = new[] { spawnPos1, spawnPos2, spawnPos3, spawnPos4, spawnPos5, spawnPos6, spawnPos7, spawnPos8 };
-            endPoints = new[] { endPoint1, endPoint2, endPoint3, endPoint4 };
+            _spawnPositions = new[] { spawnPos1, spawnPos2, spawnPos3, spawnPos4, spawnPos5, spawnPos6, spawnPos7, spawnPos8 };
+            _endPoints = new[] { endPoint1, endPoint2, endPoint3, endPoint4 };
         }
 
         private void Update()
         {
-            if (running)
+            if (_running)
             {
-                spawnTime -= Time.deltaTime;
+                _spawnTime -= Time.deltaTime;
 
-                if (spawnTime <= 0)
+                if (_spawnTime <= 0)
                 {
                     // creates a random startpoint to create the asteroid
                     // and a random endpoint where the asteroid should fly to
@@ -75,25 +89,29 @@ namespace Game.Tasks.AsteroidsShooter
                     // instantiates an asteroid at the random selected spawnpoint
                     // and changes its flying direction
                     var newRock = Instantiate(rock, position, new Quaternion());
-                    newRock.GetComponent<Rigidbody>().velocity = direction * projectileSpeed;
+                    newRock.GetComponent<Rigidbody>().velocity = direction * _projectileSpeed;
 
                     // interval of creating new asteroids
-                    spawnTime = spawnInterval;
+                    _spawnTime = _spawnInterval;
 
-                    amountAsteroid--; // reduces the amount of asteroids spawning by one
+                    _amountAsteroid--; // reduces the amount of asteroids spawning by one
                     
                     // Check if the playing time exceeds the game time
-                    if (amountAsteroid <= 0)
+                    if (_amountAsteroid <= 0)
                     {
-                        running = false;
+                        _running = false;
                         taskOverAmount = true;
-                        m_LOG.Log(LOGTag, "Max. amount of asteroids spawned! Stopped spawning new asteroids");
                     }
                 }
             }
         }
 
-        // calculates the direction through the spawnpoint and the endpoint
+        /// <summary>
+        /// calculates the direction through the spawn-point and the endpoint
+        /// </summary>
+        /// <param name="startPoint"></param>
+        /// <param name="endPoint"></param>
+        /// <returns></returns>
         private static Vector3 CalculateDirection(Vector3 startPoint, Vector3 endPoint)
         {
             var direction = endPoint - startPoint;
@@ -101,51 +119,59 @@ namespace Game.Tasks.AsteroidsShooter
             return direction;
         }
         
-        // selects one random spawnpoint out of the array
+        /// <summary>
+        /// selects one random spawn-point out of the array
+        /// </summary>
+        /// <returns></returns>
         private Transform GetRandomSpawnPosition()
         {
-            return spawnPositions[Random.Range(0, spawnPositions.Length)];
+            return _spawnPositions[Random.Range(0, _spawnPositions.Length)];
         }
 
-        // selects one random endpoint out of the array
+        /// <summary>
+        /// selects one random endpoint out of the array
+        /// </summary>
+        /// <returns></returns>
         private Transform GetRandomEndPoint()
         {
-            return endPoints[Random.Range(0, endPoints.Length)];
+            return _endPoints[Random.Range(0, _endPoints.Length)];
         }
 
-        // sets up the values of _spawnInternval, _projectileSpeed, _gameTime depenmding on the difficulty
+        /// <summary>
+        /// sets up the values of _spawnInternval, _projectileSpeed, _gameTime depenmding on the difficulty
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private void SetupDifficulty()
         {
             switch (difficulty.GetSeparatedDifficulty())
             {
                 case SeparatedDifficulty.Easy:
-                    spawnInterval = 2.5f;
-                    projectileSpeed = 3f;
-                    amountAsteroid = 20;
-                    m_LOG.Log(LOGTag, "Interval: " + spawnInterval + ", Speed: " + projectileSpeed + ", Amount Asteroid: " + amountAsteroid);
-                    break;
+                    _spawnInterval = 2.5f;
+                    _projectileSpeed = 3f;
+                    _amountAsteroid = 20;
+                     break;
                 case SeparatedDifficulty.Medium:
-                    spawnInterval = 2f;
-                    projectileSpeed = 4f;
-                    amountAsteroid = 25;
-                    m_LOG.Log(LOGTag, "Interval: " + spawnInterval + ", Speed: " + projectileSpeed + ", Amount Asteroid: " + amountAsteroid);
+                    _spawnInterval = 2f;
+                    _projectileSpeed = 4f;
+                    _amountAsteroid = 25;
                     break;
                 case SeparatedDifficulty.Hard:
-                    spawnInterval = 1.5f;
-                    projectileSpeed = 5f;
-                    amountAsteroid = 30;
-                    m_LOG.Log(LOGTag, "Interval: " + spawnInterval + ", Speed: " + projectileSpeed + ", Amount Asteroid: " + amountAsteroid);
+                    _spawnInterval = 1.5f;
+                    _projectileSpeed = 5f;
+                    _amountAsteroid = 30;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
-
-        // function used to stop the task if too many asteroid hitted the wall.
+        
+        /// <summary>
+        /// function used to stop the task if too many asteroid hit the wall
+        /// </summary>
+        /// <returns></returns>
         public void StopAsteroidSpawningLost()
         {
-            m_LOG.Log(LOGTag, "You lost because too many asteroids hit the wall!");
-            running = false;
+            _running = false;
         }
     }
 }

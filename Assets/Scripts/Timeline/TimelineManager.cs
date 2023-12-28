@@ -6,29 +6,32 @@ using UnityEngine.SceneManagement;
 
 namespace Timeline 
 {
-    // class used to manage the correct play of the timelines and to set the player up before and after playing it
-    public class TimelineManager : MonoBehaviour
+    /// <summary>
+    /// manages the correct play of the timelines and sets the player up
+    /// before and after playing it
+    /// </summary>
+     public class TimelineManager : MonoBehaviour
     {
         // stores the game-objects of the used timelines 
-        public GameObject startSceneGameObject;
-        public GameObject endSceneLoseSceneGameObject;
-        public GameObject endSceneWinSceneGameObject;
+        [SerializeField] private GameObject startSceneGameObject;
+        [SerializeField] private GameObject endSceneLoseSceneGameObject;
+        [SerializeField] private GameObject endSceneWinSceneGameObject;
         
         // stores the position the player should be teleported to
-        public Transform startScenePlayerTransform;
-        public Transform endSceneLosePlayerTransform;
-        public Transform endSceneWinPlayerTransform;
+        [SerializeField] private Transform startScenePlayerTransform;
+        [SerializeField] private Transform endSceneLosePlayerTransform;
+        [SerializeField] private Transform endSceneWinPlayerTransform;
 
         // stores the playable director of each timeline
         private PlayableDirector _startSceneDirector;
         private PlayableDirector _endSceneLoseDirector;
         private PlayableDirector _endSceneWinDirector;
         
-        public PlayerProfileService playerProfileService;
+        [SerializeField] private PlayerProfileService playerProfileService;
         
-        public GameTimer gameTimer;
+        [SerializeField] private GameTimer gameTimer;
 
-        public GameInformation gameInformation;
+        [SerializeField] private GameInformation gameInformation;
         
         private void Start()
         {

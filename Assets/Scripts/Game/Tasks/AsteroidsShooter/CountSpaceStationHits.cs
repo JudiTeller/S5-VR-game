@@ -1,68 +1,76 @@
 using System;
-using Logging;
 using UnityEngine;
 
 namespace Game.Tasks.AsteroidsShooter
 {
-    // class used to handle the collision of asteroids and the wall
+    /// <summary>
+    /// class used to handle the collision of asteroids and the wall
+    /// </summary>
     public class CountSpaceStationHits : MonoBehaviour
     {
-        private readonly Logger m_LOG = new Logger(new LogHandler());
-        private const string LOGTag = "CountSpaceStationHits";
+        // stores the selected difficulty-value
+        [SerializeField] public Difficulty difficulty; 
         
-        public Difficulty difficulty; // stores the selected difficulty-value
-        public SpawnAsteroids spawnAsteroidsScript; 
+        // stores the reference of the SpawnAsteroid-script
+        [SerializeField] private SpawnAsteroids spawnAsteroidsScript; 
         
-        private int maxHitCounter; // stores the value how often an asteroid can he the wall to lose the task
-        private int hitCounter; // stores the value how often an asteroid hit the wall
+        // stores the value how often an asteroid can he the wall to lose the task
+        private int _maxHitCounter; 
         
+        // stores the value how often an asteroid hit the wall
+        private int _hitCounter; 
+        
+        // == true, when too many asteroids hit the wall 
         [HideInInspector]
-        public bool taskOverWall;// == true, when too many asteroids hit the wall 
+        public bool taskOverWall;
 
+        /// <summary>
+        /// sets the task up depending on the difficulty of the game and
+        /// sets the hit-counter to 0
+        /// </summary>
         private void Start()
         {
             SetupDifficulty();
-            hitCounter = 0;
+            _hitCounter = 0;
         }
 
-        // function to handle collision between asteroid and wall
+        /// <summary>
+        /// handles collision between asteroid and wall
+        /// </summary>
+        /// <param name="other"></param>
         private void OnTriggerEnter(Collider other)
         {
             // checks if the colliding object has the tag "Asteroid"
             if (!other.gameObject.CompareTag("Asteroid")) return;
 
             // highers the counter up by 1 and destroys the asteroid
-            hitCounter++;
+            _hitCounter++;
             Destroy(other.gameObject);
             
-            if (hitCounter >= maxHitCounter) // checks if the task is lost
+            if (_hitCounter >= _maxHitCounter) // checks if the task is lost
             {
                 spawnAsteroidsScript.StopAsteroidSpawningLost();
                 
                 taskOverWall = true;
             }
-            else if(hitCounter < maxHitCounter) // checks if the amount of hits on the wall are lower than the limit
-            {
-                m_LOG.Log(LOGTag, "Hit! Hits left: " + (maxHitCounter - hitCounter));
-            }
         }
 
-        // sets the value of _maxHintCounter depending on the selected difficulty
+        /// <summary>
+        /// sets the value of _maxHintCounter depending on the selected difficulty
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private void SetupDifficulty()
         {
             switch (difficulty.GetSeparatedDifficulty())
             {
                 case SeparatedDifficulty.Easy:
-                    maxHitCounter = 5;
-                    m_LOG.Log(LOGTag,"Max Hits: " + maxHitCounter);
+                    _maxHitCounter = 5;
                     break;
                 case SeparatedDifficulty.Medium:
-                    maxHitCounter = 3;
-                    m_LOG.Log(LOGTag,"Max Hits: " + maxHitCounter);
+                    _maxHitCounter = 3;
                     break;
                 case SeparatedDifficulty.Hard:
-                    maxHitCounter = 1;
-                    m_LOG.Log(LOGTag,"Max Hits: " + maxHitCounter);
+                    _maxHitCounter = 1;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

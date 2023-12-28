@@ -1,11 +1,15 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Game.Tasks.EnergyCore
 {
-    // control-script of the energycore-task
+    /// <summary>
+    /// Script to manage the task Energy Core
+    /// </summary>
     public class StartEnergyCoreTask : TimerTask
     {
-        public int finishedEnergyCoreCounter;
+        // variable to count the finished energy cores (energy core collided with right energy cell)
+        [SerializeField] private int finishedEnergyCoreCounter;
         
         public StartEnergyCoreTask() : base(initialTimerTime : 70f, taskName: "Energy Core", taskDescription: "Energy Core",
             integrityValue : 10)
@@ -30,6 +34,7 @@ namespace Game.Tasks.EnergyCore
 
         protected override void BeforeStateCheck()
         {
+            // no implementation needed
         }
 
         protected override TaskState CheckTaskState()
@@ -44,6 +49,14 @@ namespace Game.Tasks.EnergyCore
             {
                 DestroyTask();
             }
+        }
+
+        /// <summary>
+        /// increments the value of finishedEnergyCoreCounter by 1
+        /// </summary>
+        public void IncrementFinishedEnergyCoreCounter()
+        {
+            finishedEnergyCoreCounter++;
         }
     }
 }

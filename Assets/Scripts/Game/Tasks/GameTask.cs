@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using PlayerController;
-using Sound;
 using UnityEngine;
 
 namespace Game.Tasks

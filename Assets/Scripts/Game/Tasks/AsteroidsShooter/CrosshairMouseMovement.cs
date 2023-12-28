@@ -4,21 +4,31 @@ using UnityEngine.XR;
 
 namespace Game.Tasks.AsteroidsShooter
 {
-    // class used to track movement of the mouse for the crosshair
+    /// <summary>
+    /// class used to track movement of the mouse for the crosshair
+    /// </summary>
     public class CrosshairMouseMovement : MonoBehaviour
     {
         // objects of the canvas and the crosshair
         public RectTransform crosshairRectTransform;
         public RectTransform canvasRectTransform;
         
-        public PlayerProfileService playerProfileService; // stores the reference to the player profile
+        // stores the reference to the player profile
+        public PlayerProfileService playerProfileService; 
         
-        public XRNode controller; // stores the object of the used controller
+        // stores the object of the used controller
+        public XRNode controller; 
         
         // value of the sensitivity, how fast the crosshair should move in vr
         // threshold to reset crosshair if the tilt is lower than this value
         public float sensitivity = 0.1f;
         
+        /// <summary>
+        /// is called every frame
+        /// moves the crosshair depending on the selected profile
+        /// vr: crosshair-movement through left joystick
+        /// keyboard: crosshair-movement through mouse
+        /// </summary>
         private void Update()
         {
             // if vr-player is active

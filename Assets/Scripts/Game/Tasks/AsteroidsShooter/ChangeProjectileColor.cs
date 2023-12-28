@@ -6,8 +6,11 @@ namespace Game.Tasks.AsteroidsShooter
     public class ChangeProjectileColor : MonoBehaviour
     {
         // stores the color of the projectile
-        public Color newColor; 
+        [SerializeField] private Color newColor; 
 
+        /// <summary>
+        /// changes the color of the projectile to the value of newColor
+        /// </summary>
         private void OnEnable()
         {
             // creates a new material

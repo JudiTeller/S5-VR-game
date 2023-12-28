@@ -1,45 +1,43 @@
 using System;
-using Logging;
 using UnityEngine;
 
 namespace Game.Tasks.StorageRiddle
 {
-    // class used to manage the process of the task
+    /// <summary>
+    /// manage the process of the task Storage Riddle
+    /// </summary>
     public class StartStorageRiddle : TimerTask
     {
-        // Logger
-        private Logger m_LOG = new (new LogHandler());
-        private const string LOGTag = "StorageRiddle";
+        // amount how many boxes should be spawned in
+        private int _maxAmountDeliveryBoxes; 
         
-        private int _maxAmountDeliveryBoxes; // amount how many boxes should be spawned in
-        
-        public HandleBoxDelivery handleBoxDeliveryScript;
-        public SpawnBoxes spawnBoxesScript;
+        // references to the needed scripts to setup the amount of boxes in the task
+        [SerializeField] private HandleBoxDelivery handleBoxDeliveryScript;
+        [SerializeField] private SpawnBoxes spawnBoxesScript;
         
         public StartStorageRiddle() : base(initialTimerTime: 600f, taskName: "Storage Riddle", 
             taskDescription: "", integrityValue: 10)
         {
             taskDescription = "Someone misplaced the storage boxes!\n" +
-                              "You need to place all of them on the platform.\n" +
+                              "You need to place all of them on the green glowing platform.\n" +
                               "One of them contains the towel you need to survive the journey!";
         }
         
         public override void Initialize()
         {
-            SetupDifficulty(); // sets the variables depending on the difficulty
+            // sets the variables depending on the difficulty
+            SetupDifficulty(); 
             
             // sets the variable in the subclasses
-            handleBoxDeliveryScript.maxAmountDeliveryBoxes = _maxAmountDeliveryBoxes;
-            spawnBoxesScript.maxAmountDeliveryBoxes = _maxAmountDeliveryBoxes;
+            handleBoxDeliveryScript.SetMaxAmountDeliveryBoxes(_maxAmountDeliveryBoxes);
+            spawnBoxesScript.SetMaxAmountDeliveryBoxes(_maxAmountDeliveryBoxes);
         }
 
         protected override void BeforeStateCheck()
         {
+            // no implementation needed
         }
-
-        // sets the state of the task
-        // if isTaskedFinished() returns true: TaskState.Successful
-        // else: TaskState.Ongoing
+        
         protected override TaskState CheckTaskState()
         {
             if (PlayerPrefs.GetString("CurrentPlayer").Equals("VR"))
@@ -49,8 +47,7 @@ namespace Game.Tasks.StorageRiddle
 
             return TaskState.Ongoing;
         }
-
-        // destroys task if it is done
+        
         protected override void AfterStateCheck()
         {
             if (currentTaskState != TaskState.Ongoing)
@@ -59,22 +56,22 @@ namespace Game.Tasks.StorageRiddle
             }
         }
         
-        // sets the amount how many boxes used in this task depending on the selected difficulty
+        /// <summary>
+        /// sets the amount how many boxes used in this task depending on the selected difficulty
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private void SetupDifficulty()
         {
             switch (difficulty.GetSeparatedDifficulty())
             {
                 case SeparatedDifficulty.Easy:
                     _maxAmountDeliveryBoxes = 3;
-                    m_LOG.Log(LOGTag,"Amount of boxes: " + _maxAmountDeliveryBoxes);
                     break;
                 case SeparatedDifficulty.Medium:
                     _maxAmountDeliveryBoxes = 5;
-                    m_LOG.Log(LOGTag,"Amount of boxes: " + _maxAmountDeliveryBoxes);
                     break;
                 case SeparatedDifficulty.Hard:
                     _maxAmountDeliveryBoxes = 7;
-                    m_LOG.Log(LOGTag,"Amount of boxes: " + _maxAmountDeliveryBoxes);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

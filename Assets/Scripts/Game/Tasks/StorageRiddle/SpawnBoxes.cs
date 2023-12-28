@@ -4,29 +4,36 @@ using Random = UnityEngine.Random;
 
 namespace Game.Tasks.StorageRiddle
 {
-    // class handles the spawning of the boxes and its position 
+    /// <summary>
+    /// handles the spawning of the boxes and its position in the game
+    /// </summary>
     public class SpawnBoxes : MonoBehaviour
     {
-        public GameObject boxPrefab; // prefab of the box spawned in the task
+        // prefab of the box spawned in the task
+        [SerializeField] private GameObject boxPrefab; 
         
-        [HideInInspector]
-        public int maxAmountDeliveryBoxes; // value how many boxes should be placed on the given platform
+        // value how many boxes should be placed on the given platform
+        private int _maxAmountDeliveryBoxes; 
         
         // stores the possible spawn-points of the boxes
-        public Transform spawnPos1;
-        public Transform spawnPos2;
-        public Transform spawnPos3;
-        public Transform spawnPos4;
-        public Transform spawnPos5;
-        public Transform spawnPos6;
-        public Transform spawnPos7;
-        public Transform spawnPos8;
-        public Transform spawnPos9;
-        public Transform spawnPos10;
-        public Transform spawnPos11;
-        public Transform spawnPos12;
+        [SerializeField] private Transform spawnPos1;
+        [SerializeField] private Transform spawnPos2;
+        [SerializeField] private Transform spawnPos3;
+        [SerializeField] private Transform spawnPos4;
+        [SerializeField] private Transform spawnPos5;
+        [SerializeField] private Transform spawnPos6;
+        [SerializeField] private Transform spawnPos7;
+        [SerializeField] private Transform spawnPos8;
+        [SerializeField] private Transform spawnPos9;
+        [SerializeField] private Transform spawnPos10;
+        [SerializeField] private Transform spawnPos11;
+        [SerializeField] private Transform spawnPos12;
         private readonly List<Transform> _possibleSpawnPositions = new();
         
+        /// <summary>
+        /// adds all transforms of the position-game-objects to a list and selects an amount of positions random from
+        /// the list depending on the value of _maxAmountDeliveryBoxes
+        /// </summary>
         private void Start()
         {
             _possibleSpawnPositions.Add(spawnPos1);
@@ -43,16 +50,23 @@ namespace Game.Tasks.StorageRiddle
             _possibleSpawnPositions.Add(spawnPos12);
             
             // places boxes (spawned amount depends on the amount set by the difficulty) on randomized positions
-            for (var i = 0; i < maxAmountDeliveryBoxes; i++)
+            for (var i = 0; i < _maxAmountDeliveryBoxes; i++)
             {
                 var boxPosition = _possibleSpawnPositions[Random.Range(0, _possibleSpawnPositions.Count)];
                 
                 _possibleSpawnPositions.Remove(boxPosition);
                 
                 Instantiate(boxPrefab, boxPosition.position, new Quaternion());
-                Debug.Log("Box " + i + " spawned.");
             }
         }
+        
+        /// <summary>
+        /// sets the amount of the boxes which should be placed on the delivery-platform to the given value
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetMaxAmountDeliveryBoxes(int value)
+        {
+            _maxAmountDeliveryBoxes = value;
+        }
     }
-    
 }

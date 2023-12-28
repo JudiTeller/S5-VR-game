@@ -2,10 +2,12 @@ using UnityEngine;
 
 namespace Game.Tasks.AsteroidsShooter
 {
-    // class used to start the task if the button in the prefab is pressed
+    /// <summary>
+    /// class used to start the task if the button in the prefab is pressed
+    /// </summary>
     public class StartAsteroidShooterTaskButton : MonoBehaviour
     {
-        public StartAsteroidShooter startAsteroidShooterScript;
+        [SerializeField] private StartAsteroidShooter startAsteroidShooterScript;
 
         public void StartTaskAsteroidShooter()
         {

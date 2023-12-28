@@ -2,7 +2,9 @@ using UnityEngine;
 
 namespace Game.Tasks.EnergyCore
 {
-    // class to create instances of the energycore-task
+    /// <summary>
+    /// class to create instances of the task Energy Core
+    /// </summary>
     public class EnergyCoreFactory : GameTaskFactory<TaskSpawnPoint>
     {
 

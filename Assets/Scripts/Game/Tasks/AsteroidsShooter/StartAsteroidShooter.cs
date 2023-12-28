@@ -1,17 +1,28 @@
-using PlayerController;
 using UnityEngine;
 
 namespace Game.Tasks.AsteroidsShooter
 {
-    // class used to control the asteroid-shooter
+    /// <summary>
+    /// class used to control the asteroid-shooter
+    /// </summary>
     public class StartAsteroidShooter : GameTask
     {
-        public GameObject asteroidShooterScene; // needs the prefab of the asteroid-shooter
-        public SpawnAsteroids spawnAsteroidsScript; // needs the script SpawnAsteroids
-        public CountSpaceStationHits countSpaceStationHitsScript; // needs the script CountSpaceStationHits
-        public ShootProjectile shootProjectile; // stores the script reference to ShootProjectile
-        public CrosshairMouseMovement crosshairMouseMovement; // stores the script-reference to CrosshairMouseMouvement
+        // needs the prefab of the asteroid-shooter
+        public GameObject asteroidShooterScene; 
         
+        // needs the script SpawnAsteroids
+        public SpawnAsteroids spawnAsteroidsScript;
+        
+        // needs the script CountSpaceStationHits
+        public CountSpaceStationHits countSpaceStationHitsScript;
+        
+        // stores the script reference to ShootProjectile
+        public ShootProjectile shootProjectile; 
+        
+        // stores the script-reference to CrosshairMouseMouvement
+        public CrosshairMouseMovement crosshairMouseMovement; 
+        
+        // stores the value of the variable if the task is started
         private bool _started;
         
         public StartAsteroidShooter() : base("AsteroidShooter", "AsteroidShooter description")
@@ -25,7 +36,8 @@ namespace Game.Tasks.AsteroidsShooter
             countSpaceStationHitsScript.difficulty = difficulty;
             spawnAsteroidsScript.difficulty = difficulty;
 
-            asteroidShooterScene.SetActive(false); // deactivates the asteroid-shooter at the beginning
+            // deactivates the asteroid-shooter at the beginning
+            asteroidShooterScene.SetActive(false); 
             
             taskDescription = "Oh no!\n Asteroids are flying towards the station!\n Shoot them before they hit the space station!\n Use the left stick to control the crosshair and the right trigger to shoot a nuclear ball!";
         }
@@ -70,6 +82,9 @@ namespace Game.Tasks.AsteroidsShooter
             }
         }
 
+        /// <summary>
+        /// starts the task Asteroid Shooter
+        /// </summary>
         public void StartTask()
         {
             asteroidShooterScene.SetActive(true);

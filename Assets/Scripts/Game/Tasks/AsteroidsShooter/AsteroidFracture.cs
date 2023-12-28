@@ -2,13 +2,17 @@ using UnityEngine;
 
 namespace Game.Tasks.AsteroidsShooter
 {
-    // class used to destroy the collided asteroid and spawn the fractured
+    /// <summary>
+    /// destroys the collided asteroid and spawn the fractured
+    /// </summary>
     public class AsteroidFracture : MonoBehaviour
     {
         // this is the object the asteroid will break into
-        public GameObject fractured;
+        [SerializeField] private GameObject fractured;
         
-        // function replaces the collided asteroid with the fractured one
+        /// <summary>
+        /// replaces the collided asteroid with the fractured one
+        /// </summary>
         private void FractureObject()
         {
             Instantiate(fractured, transform.position, transform.rotation); 
@@ -16,7 +20,11 @@ namespace Game.Tasks.AsteroidsShooter
             Destroy(gameObject);
         }
 
-        // is called when the projectile with the Tag "Bullet" collides with the asteroid
+        /// <summary>
+        /// is called when the projectile with the Tag "Bullet"
+        /// collides with the asteroid
+        /// </summary>
+        /// <param name="other"></param>
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Bullet"))

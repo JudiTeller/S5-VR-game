@@ -1,6 +1,5 @@
 using Game.Tasks;
 using Logging;
-using Sound;
 using UnityEngine;
 
 namespace Game.Observer
@@ -15,22 +14,15 @@ namespace Game.Observer
 
         private int m_ActiveTasks;
         
-        // sound-manager-scripts to play sounds for tasks
-        [SerializeField] private SoundManager taskFailureSoundManager;
-        
-        [SerializeField] private SoundManager taskSuccessSoundManager;
-        
         protected override void OnTaskSuccessful(GameTask task)
         {
             m_LOG.Log(LOGTag,"task successful: " + task.taskName);
-            taskSuccessSoundManager.PlaySoundFunctionCall();
             m_ActiveTasks--;
         }
         
         protected override void OnTaskFailed(GameTask task)
         {
             m_LOG.Log(LOGTag,"task failed: " + task.taskName);
-            taskFailureSoundManager.PlaySoundFunctionCall();
             m_ActiveTasks--;
         }
         

@@ -2,14 +2,19 @@ using UnityEngine;
 
 namespace Timeline 
 {
-    // class used to destroy the collided asteroid and spawn the fractured
+    /// <summary>
+    /// class used to destroy the collided asteroid and spawn the fractured
+    /// </summary>
     public class AsteroidFractureStartScene : MonoBehaviour
     {
         // this is the object the asteroid will break into
-        public GameObject fractured; 
+        [SerializeField] private GameObject fractured; 
 
-        // is called when the projectile with the Tag "Bullet" collides with the asteroid
-        private void OnCollisionEnter(Collision collision)
+        /// <summary>
+        /// is called when the projectile with the Tag "Bullet" collides with the asteroid
+        /// </summary>
+        /// <param name="collision"></param>
+        private void OnCollisionEnter()
         {
             Instantiate(fractured, transform.position, transform.rotation); 
         

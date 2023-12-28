@@ -6,22 +6,26 @@ namespace Game.Tasks.EnergyCore
     public class ManageEnergyCoreColors : MonoBehaviour
     {
         // stores the gameObjects of the cores
-        public GameObject energyCoreRed;
-        public GameObject energyCoreBlue;
-        public GameObject energyCoreGreen;
-        public GameObject energyCoreYellow;
-        public GameObject energyCoreMagenta;
-        public GameObject energyCoreCyan;
-        public GameObject energyCoreEmpty;
+        [SerializeField] private GameObject energyCoreRed;
+        [SerializeField] private GameObject energyCoreBlue;
+        [SerializeField] private GameObject energyCoreGreen;
+        [SerializeField] private GameObject energyCoreYellow;
+        [SerializeField] private GameObject energyCoreMagenta;
+        [SerializeField] private GameObject energyCoreCyan;
+        [SerializeField] private GameObject energyCoreEmpty;
         
         // stores the gameObjects of the cells
-        public GameObject energyCell1;
-        public GameObject energyCell2;
-        public GameObject energyCell3;
-        public GameObject energyCell4;
-        public GameObject energyCell5;
-        public GameObject energyCell6;
+        [SerializeField] private GameObject energyCell1;
+        [SerializeField] private GameObject energyCell2;
+        [SerializeField] private GameObject energyCell3;
+        [SerializeField] private GameObject energyCell4;
+        [SerializeField] private GameObject energyCell5;
+        [SerializeField] private GameObject energyCell6;
         
+        /// <summary>
+        /// sets the colors of the energy cores and
+        /// sets the color of the energy cells to a random one of the list
+        /// </summary>
         private void Start()
         {
             //sets the color of the cores
@@ -54,14 +58,22 @@ namespace Game.Tasks.EnergyCore
             SetColor(energyCell6, SelectRandomColor(colors));
         }
         
-        // function to set the color of an object
+        /// <summary>
+        /// sets the color of an object
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="newColor"></param>
         private static void SetColor(GameObject target, Color newColor)
         {
             var material = target.GetComponent<Renderer>().material;
             material.color = newColor;
         }
 
-        // function to return a random color of the used list
+        /// <summary>
+        /// returns a random color of the used list
+        /// </summary>
+        /// <param name="possibleColors"></param>
+        /// <returns></returns>
         private static Color SelectRandomColor(IList<Color> possibleColors)
         {
             var randomIndex = Random.Range(0, possibleColors.Count);
@@ -73,7 +85,11 @@ namespace Game.Tasks.EnergyCore
             return selectedColor;
         }
 
-        // returns the color of the gameObject
+        /// <summary>
+        /// returns the color of the gameObject
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public static Color GetColor(GameObject target)
         {
             return target.GetComponent<Renderer>().material.color;
