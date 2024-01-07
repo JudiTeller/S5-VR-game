@@ -72,6 +72,7 @@ namespace Game.Tasks
         public void Allocate(GameTask gameTask)
         {
             m_AllocatedTask = gameTask;
+            gameTask.spawnPoint = this;
             gameTask.GameObjectDestroyed += Deallocate;
         }
 
@@ -81,6 +82,7 @@ namespace Game.Tasks
         public void Deallocate(GameTask gameTask)
         {
             m_AllocatedTask = null;
+            gameTask.spawnPoint = null;
             lastDeallocateTime = System.DateTime.UtcNow;
         }
         
@@ -131,5 +133,6 @@ namespace Game.Tasks
         {
             m_Timeout = timeout;
         }
+        
     }
 }

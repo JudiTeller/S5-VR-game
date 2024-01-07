@@ -100,6 +100,12 @@ public class HUD : MonoBehaviour
         };
     }
     
+    
+    public void ChangeNavigation(bool active)
+    {
+        navigator.gameObject.SetActive(active);
+    }
+    
 
     public Camera ParentCamera()
     {

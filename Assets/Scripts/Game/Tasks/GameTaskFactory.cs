@@ -56,6 +56,8 @@ namespace Game.Tasks
         
         [SerializeField] private T[] spawnPoints;
 
+        [SerializeField] private AltMarker altMarkerPrefab;
+
         public override void Initialize(FactoryInitializationData initializationData)
         {
             mDifficulty = initializationData.difficulty;
@@ -97,6 +99,12 @@ namespace Game.Tasks
             
                 // initialize task with its own logic
                 newTask.Initialize();
+                
+                if (m_PlayerProfileService.IsAltMarkerActive())
+                {
+                    newTask.attachMarker(altMarkerPrefab);
+                }
+                
             
                 // register the new task
                 m_GameTaskObserver.RegisterGameTask(newTask);

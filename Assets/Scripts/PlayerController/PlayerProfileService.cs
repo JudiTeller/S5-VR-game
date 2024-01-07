@@ -21,6 +21,7 @@ namespace PlayerController
         [SerializeField] private GameObject locomotiveSystemMove;
         [SerializeField] private HUD vrPlayerHUD;
         [SerializeField] private HUD keyboardPlayerHUD;
+        [SerializeField] private bool isAltMarkerActive;
         
         /// <summary>
         /// Deactivates the player that should not be used during the game.
@@ -125,5 +126,11 @@ namespace PlayerController
             }
             return keyboardPlayerHUD;
         }
+
+        public bool IsAltMarkerActive()
+        {
+            return isAltMarkerActive;
+        }
+        
     }
 }

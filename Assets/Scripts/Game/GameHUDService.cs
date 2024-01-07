@@ -18,6 +18,7 @@ namespace Game
             gameTimer.OnTimeChanged += OnTimeChanged;
             // deactivated due to workaround (see below)
             integrity.OnIntegrityChanged += OnIntegrityChanged;
+            ChangeNavigation();
         }
 
         /// <summary>
@@ -36,6 +37,11 @@ namespace Game
         private void OnIntegrityChanged(int integrityValue)
         {
             playerProfileService.GetHUD().UpdateIntegrityIndicator(integrity.GetCurrentIntegrityPercentage());
+        }
+
+        private void ChangeNavigation()
+        {
+            playerProfileService.GetHUD().ChangeNavigation(!playerProfileService.IsAltMarkerActive());
         }
     }
 }
